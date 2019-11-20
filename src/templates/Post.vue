@@ -6,15 +6,21 @@
       </h1>
 
       <PostMeta :post="$page.post" />
-
     </div>
 
     <div class="post content-box">
       <div class="post__header">
-        <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
+        <g-image
+          v-if="$page.post.cover_image"
+          :src="$page.post.cover_image"
+          alt="Cover image"
+        />
       </div>
 
-      <div class="post__content" v-html="$page.post.content" />
+      <div
+        class="post__content"
+        v-html="$page.post.content"
+      />
 
       <div class="post__footer">
         <PostTags :post="$page.post" />
@@ -55,22 +61,22 @@ export default {
 </script>
 
 <page-query>
-query Post ($id: ID!) {
-  post: post (id: $id) {
-    title
-    path
-    date (format: "D. MMMM YYYY")
-    timeToRead
-    tags {
-      id
+  query Post($id: ID!) {
+    post: post(id: $id) {
       title
       path
+      date(format: "D. MMMM YYYY")
+      timeToRead
+      tags {
+        id
+        title
+        path
+      }
+      description
+      content
+      cover_image(width: 860, blur: 10)
     }
-    description
-    content
-    cover_image (width: 860, blur: 10)
   }
-}
 </page-query>
 
 <style lang="scss">
