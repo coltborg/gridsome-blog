@@ -28,6 +28,18 @@ module.exports = {
           }
         }
       }
+    },
+    {
+      use: 'gridsome-plugin-tailwindcss',
+      options: {
+        tailwindConfig: './tailwind.config.js',
+        purgeConfig: {},
+        presetEnvConfig: {},
+        shouldPurge: false, // TODO: Enable once close to release
+        shouldImport: true,
+        shouldTimeTravel: true,
+        shouldPurgeUnusedKeyframes: false, // TODO: Enable once close to release
+      }
     }
   ],
 

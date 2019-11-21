@@ -11,7 +11,7 @@
 
     <h1
       v-if="showTitle"
-      class="author__site-title"
+      class="author__site-title text-teal-600"
     >
       {{ $static.metadata.siteName }}
     </h1>
@@ -50,8 +50,11 @@ export default {
 .author {
 	margin: 0 auto;
 	max-width: 500px;
-	text-align: center;
 	padding: calc(var(--space) / 2) 0;
+	text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 
 	&__image {
 		border-radius: 100%;
