@@ -11,7 +11,7 @@ Most of the time when I'm coding with [node lists](https://developer.mozilla.org
 
 But every time it backfires because Node lists are actually objects.
 
-```JavaScript
+```javascript
 const nodeArray = document.querySelectorAll('p');
 
 nodeArray.map(node => console.log(node);
@@ -20,7 +20,7 @@ nodeArray.map(node => console.log(node);
 
 To quickly fix this, I could either use the `.forEach()` method instead of `.map()`.
 
-```JavaScript
+```javascript
 const nodeArray = document.querySelectorAll('p');
 
 nodeArray.forEach(node => console.log(node);
@@ -29,7 +29,7 @@ nodeArray.forEach(node => console.log(node);
 
 Or I could quickly turn the node list into an array using the `spread operator`.
 
-```JavaScript
+```javascript
 const nodeArray = document.querySelectorAll('p');
 const realArray = [...nodeArray];
 
