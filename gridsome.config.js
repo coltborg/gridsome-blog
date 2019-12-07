@@ -40,6 +40,32 @@ module.exports = {
         shouldTimeTravel: true,
         shouldPurgeUnusedKeyframes: false, // TODO: Enable once close to release
       }
+    },
+    {
+      use: 'gridsome-plugin-rss',
+      options: {
+        contentTypeName: 'Post',
+        feedItemOptions: node => ({
+          author: 'Colt Borg',
+          categories: [node.tags],
+          content: node.content,
+          date: node.date,
+          description: node.description,
+          title: node.title,
+          url: 'https://coltborg.com' + node.path,
+        }),
+        feedOptions: {
+          feed_url: 'https://coltborg.com/rss.xml',
+          site_url:  'https://coltborg.com',
+          title: 'Colt Borg',
+        },
+        latest: true,
+        output: {
+          dir: './static',
+          // The name of the feed.
+          name: 'rss.xml'
+        }
+      }
     }
   ],
 

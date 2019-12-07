@@ -14,7 +14,8 @@
     "@gridsome/source-filesystem": "^0.6.0",
     "@gridsome/transformer-remark": "^0.3.0",
     "global": "^4.4.0",
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "gridsome-plugin-rss": "^1.2.0"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
