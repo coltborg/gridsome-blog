@@ -47,7 +47,8 @@ export default {
     PostCard
   },
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Colt Borg',
+    titleTemplate: '%s',
   }
 }
 </script>
