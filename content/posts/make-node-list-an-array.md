@@ -1,5 +1,5 @@
 ---
-canonical_url: false
+canonical_url: true
 date: 2019-12-07
 published: true
 tags: ['JavaScript']

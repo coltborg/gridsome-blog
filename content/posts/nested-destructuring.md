@@ -1,9 +1,8 @@
 ---
-canonical_url: false
+canonical_url: true
 date: 2019-06-22
 published: true
-series: true
-tags: ['Markdown', 'Cover Image']
+tags: ['JavaScript']
 title: Nested Destructuring
 description: "I always forget the syntax for nested object destructuring. So I wrote this article so that I don't forget again."
 ---
@@ -16,7 +15,7 @@ Destructing is one of my favorite ES6 syntax improvements. But when I need to pu
 
 But first, lets looks at destructuring from one object.
 
-```javascript
+```jsx
 const MyAwesomeButton = props => (
   <button type="button" className="button">
     {props.label}
@@ -40,7 +39,7 @@ Now we've eliminated the reference to `props` and are only pulling out `label` s
 
 Our final result looks like:
 
-```javascript
+```jsx
 const MyAwesomeButton = ({ label }) => (
   <button type="button" className="">
     {label}
@@ -52,7 +51,7 @@ const MyAwesomeButton = ({ label }) => (
 
 Here is where the syntax gets confusing. If I want to pull from an object within an object, I totally can, but I never remember the right way to do it.
 
-```javascript
+```jsx
 const MyAwesomeButton = props => (
   <button type="button" className="button">
     {props.constants.icon}
@@ -109,7 +108,7 @@ Back to our React button example, I want to pull `icon` and `label` out of `prop
 
 Our component now doesn't reference `props` or `constants` and has a cleaning look.
 
-```javascript
+```jsx
 const MyAwesomeButton = { constants: { icon }, constants: { label }  } => (
   <button type="button" className="button">
     {icon}
@@ -124,7 +123,7 @@ I got this wrong several times while building this website. Pulling from nested 
 
 Here is one of the craziest examples of nested destructuring that I had to do:
 
-```javascript
+```jsx
 {quotes.map(
   ({
     node: { avatar },

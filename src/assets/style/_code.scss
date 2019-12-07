@@ -27,10 +27,9 @@ pre[class*='language-'] {
 
 /* Code blocks */
 pre[class*='language-'] {
-  padding: 1em;
-  margin: 0.5em 0;
+  margin: 0.5em calc(-1 * var(--space)) 1.25em;
   overflow: auto;
-  border-radius: 0.3em;
+  padding: 1.5em 1em;
 }
 
 :not(pre) > code[class*='language-'],
@@ -84,6 +83,10 @@ pre[class*='language-'] {
   color: #f92672;
 }
 
+.token.deleted {
+  background-color: #f9267211;
+}
+
 .token.number {
   color: #ff73fd;
 }
@@ -95,6 +98,10 @@ pre[class*='language-'] {
 .token.builtin,
 .token.inserted {
   color: #a8ff60;
+}
+
+.token.inserted {
+  background: #a8ff6011;
 }
 
 .token.variable {

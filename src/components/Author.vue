@@ -25,12 +25,47 @@
         href="//twitter.com/coltborg"
         target="_blank"
         rel="noopener noreferrer"
-      >Follow on Twitter</a>
+      >
+        <g-image
+          alt="Colt Borg's twitter Profile"
+          class="social-image"
+          src="~/assets/images/twitter.svg"
+          width="30"
+          height="30"
+          blur="5"
+        />
+        <span class="sr-only">Twitter</span>
+      </a>
       <a
         href="//github.com/coltborg"
         target="_blank"
         rel="noopener noreferrer"
-      >GitHub</a>
+      >
+        <g-image
+          alt="Colt Borg's Github Profile"
+          class="social-image"
+          src="~/assets/images/github.svg"
+          width="30"
+          height="30"
+          blur="5"
+        />
+        <span class="sr-only">Github</span>
+      </a>
+      <a
+        href="https://dev.to/coltborg"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <g-image
+          alt="Colt Borg's DEV Profile"
+          class="social-image"
+          src="~/assets/images/dev.svg"
+          width="30"
+          height="30"
+          blur="5"
+        />
+        <span class="sr-only">Dev</span>
+      </a>
     </p>
   </div>
 </template>
@@ -81,10 +116,19 @@ export default {
 	}
 
 	&__links {
-		margin-top: -.5em;
-		a {
-			margin: 0 .5em;
-		}
+    margin-top: -.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+		a + a {
+			margin-left: 1em;
+    }
 	}
+}
+body[data-theme="dark"] {
+  .social-image {
+    filter: invert(100%);
+  }
 }
 </style>

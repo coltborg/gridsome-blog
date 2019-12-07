@@ -8,6 +8,7 @@
     <svg
       v-if="darkTheme"
       class="feather feather-sun"
+      aria-label="sun"
       fill="none"
       height="24"
       stroke-linecap="round"
@@ -61,10 +62,12 @@
       x2="19.78"
       y1="5.64"
       y2="4.22"
-    /></svg>
+    />
+    </svg>
     <svg
       v-else
       class="feather feather-moon"
+      aria-label="moon"
       fill="none"
       height="24"
       stroke-linecap="round"
@@ -74,7 +77,17 @@
       viewBox="0 0 24 24"
       width="24"
       xmlns="http://www.w3.org/2000/svg"
-    ><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+    >
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+    <span
+      v-if="darkTheme"
+      class="sr-only"
+    >Swith to light theme</span>
+    <span
+      v-else
+      class="sr-only"
+    >Swith to dark theme</span>
   </button>
 </template>
 

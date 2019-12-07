@@ -17,10 +17,16 @@ body {
 
 a:not(.button) {
 	color: var(--link-color);
- 	transition: opacity .2s;
+	transition: opacity .2s;
+
 	&:hover {
 		opacity: .8;
 	}
+}
+
+a:not([class]) {
+  text-decoration: var(--link-color) solid underline;
+  text-decoration-skip: auto;
 }
 
 img {
