@@ -26,14 +26,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <g-image
-          alt="Colt Borg's twitter Profile"
-          class="social-image"
-          src="~/assets/images/twitter.svg"
-          width="30"
-          height="30"
-          blur="5"
-        />
+        <IconTwitter class="social" />
         <span class="sr-only">Twitter</span>
       </a>
       <a
@@ -41,14 +34,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <g-image
-          alt="Colt Borg's Github Profile"
-          class="social-image"
-          src="~/assets/images/github.svg"
-          width="30"
-          height="30"
-          blur="5"
-        />
+        <IconGithub class="social" />
         <span class="sr-only">Github</span>
       </a>
       <a
@@ -56,14 +42,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <g-image
-          alt="Colt Borg's DEV Profile"
-          class="social-image"
-          src="~/assets/images/dev.svg"
-          width="30"
-          height="30"
-          blur="5"
-        />
+        <IconDev class="social" />
         <span class="sr-only">Dev</span>
       </a>
     </p>
@@ -80,13 +59,23 @@
 </static-query>
 
 <script>
+import IconDev from '@/components/IconDev';
+import IconGithub from '@/components/IconGithub';
+import IconTwitter from '@/components/IconTwitter';
+
 export default {
+  name: 'Author',
+  components: {
+    IconDev,
+    IconGithub,
+    IconTwitter,
+  },
 	props: {
 		showTitle: {
 			type: Boolean,
 			default: false,
 		},
-	},
+  },
 }
 </script>
 
@@ -101,10 +90,12 @@ export default {
   flex-direction: column;
 
 	&__image {
-		border-radius: 100%;
-		width: 90px;
-		height: 90px;
-		margin-bottom: 1em;
+    --size: 100px;
+
+		height: var(--size);
+		width: var(--size);
+    border-radius: 100%;
+    margin-bottom: 1em;
 	}
 
 	&__intro {
@@ -121,14 +112,24 @@ export default {
     align-items: center;
     justify-content: space-between;
 
+    a {
+      color: var(--body-color);
+
+      &:hover {
+        color: var(--link-color);
+      }
+    }
+
 		a + a {
 			margin-left: 1em;
     }
 	}
 }
-body[data-theme="dark"] {
-  .social-image {
-    filter: invert(100%);
-  }
+
+.social {
+  --size: 26px;
+
+  height: var(--size);
+  width: var(--size);
 }
 </style>

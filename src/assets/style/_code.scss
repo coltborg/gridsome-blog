@@ -7,13 +7,13 @@
 code[class*='language-'],
 pre[class*='language-'] {
   color: #c5c8c6;
-  font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
   direction: ltr;
+  font-family: var(--mono-space);
+  line-height: 1.5;
   text-align: left;
   white-space: pre;
-  word-spacing: normal;
   word-break: normal;
-  line-height: 1.5;
+  word-spacing: normal;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -30,6 +30,10 @@ pre[class*='language-'] {
   margin: 0.5em calc(-1 * var(--space)) 1.25em;
   overflow: auto;
   padding: 1.5em 1em;
+
+  @media screen and (max-width: 650px) {
+    font-size: 15px;
+  }
 }
 
 :not(pre) > code[class*='language-'],
@@ -38,13 +42,17 @@ pre[class*='language-'] {
 }
 
 /* Inline code */
-:not(pre) > code[class*='language-'] {
-	border: 1px solid var(--border-color);
-	border-radius: 3px;
-	color: var(--body-color);
-  background-color: var(--bg-code);
+:not(pre) > code {
+	border-radius: var(--radius);
+	color: var(--code-color);
+  background-color: var(--code-bg);
+  border: var(--code-border);
   font-size: 0.85em;
-  padding: 0.2em;
+  padding: 0.25em;
+  transition:
+    background-color var(--transition-time),
+    border-color var(--transition-time),
+    color var(--transition-time);
 }
 
 .token.comment,
