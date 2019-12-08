@@ -21,6 +21,7 @@
     </p>
 
     <p class="author__links">
+      <!-- TODO: clean up with a v-for -->
       <a
         href="//twitter.com/coltborg"
         target="_blank"
@@ -45,6 +46,14 @@
         <IconDev class="social" />
         <span class="sr-only">Dev</span>
       </a>
+      <a
+        href="https://www.linkedin.com/in/coltborg/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <IconLinkedin class="social" />
+        <span class="sr-only">Linkedin</span>
+      </a>
     </p>
   </div>
 </template>
@@ -61,6 +70,7 @@
 <script>
 import IconDev from '@/components/IconDev';
 import IconGithub from '@/components/IconGithub';
+import IconLinkedin from '@/components/IconLinkedin';
 import IconTwitter from '@/components/IconTwitter';
 
 export default {
@@ -68,6 +78,7 @@ export default {
   components: {
     IconDev,
     IconGithub,
+    IconLinkedin,
     IconTwitter,
   },
 	props: {
