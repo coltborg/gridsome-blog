@@ -8,6 +8,8 @@ module.exports = {
   siteName: 'Colt Borg',
   siteDescription: 'Web developer, with a love for cats.',
 
+  icon: './src/favicon.png',
+
   templates: {
     Post: '/:title',
     Tag: '/tag/:id'
