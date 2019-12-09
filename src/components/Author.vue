@@ -21,39 +21,13 @@
     </p>
 
     <p class="author__links">
-      <!-- TODO: clean up with a v-for -->
-      <a
-        href="//twitter.com/coltborg"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <IconTwitter class="social" />
-        <span class="sr-only">Twitter</span>
-      </a>
-      <a
-        href="//github.com/coltborg"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <IconGithub class="social" />
-        <span class="sr-only">Github</span>
-      </a>
-      <a
-        href="https://dev.to/coltborg"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <IconDev class="social" />
-        <span class="sr-only">Dev</span>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/coltborg/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <IconLinkedin class="social" />
-        <span class="sr-only">Linkedin</span>
-      </a>
+      <SocialIcon
+        v-for="(link, index) in socialLinks"
+        :key="index"
+        :icon="link.icon"
+        :label="link.label"
+        :url="link.url"
+      />
     </p>
   </div>
 </template>
@@ -72,20 +46,45 @@ import IconDev from '@/components/IconDev';
 import IconGithub from '@/components/IconGithub';
 import IconLinkedin from '@/components/IconLinkedin';
 import IconTwitter from '@/components/IconTwitter';
+import SocialIcon from '@/components/SocialIcon';
 
 export default {
   name: 'Author',
   components: {
-    IconDev,
-    IconGithub,
-    IconLinkedin,
-    IconTwitter,
+    SocialIcon,
   },
 	props: {
 		showTitle: {
 			type: Boolean,
 			default: false,
 		},
+  },
+  data() {
+    return {
+      socialLinks: [
+        {
+          icon: IconTwitter,
+          label: 'Twitter',
+          url: 'https://twitter.com/coltborg',
+        },
+        {
+          icon: IconGithub,
+          label: 'Github',
+          url: 'https://github.com/coltborg',
+        },
+        {
+          icon: IconDev,
+          label: 'Dev',
+          url: 'https://dev.to/coltborg',
+        },
+        {
+          icon: IconLinkedin,
+          label: 'Linkedin',
+          url: 'https://www.linkedin.com/in/coltborg/',
+        },
+
+      ],
+    }
   },
 }
 </script>
@@ -135,12 +134,5 @@ export default {
 			margin-left: 1em;
     }
 	}
-}
-
-.social {
-  --size: 26px;
-
-  height: var(--size);
-  width: var(--size);
 }
 </style>
