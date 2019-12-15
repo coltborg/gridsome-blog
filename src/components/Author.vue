@@ -45,6 +45,7 @@
 import IconDev from '@/components/IconDev';
 import IconGithub from '@/components/IconGithub';
 import IconLinkedin from '@/components/IconLinkedin';
+import IconRss from '@/components/IconRss';
 import IconTwitter from '@/components/IconTwitter';
 import SocialIcon from '@/components/SocialIcon';
 
@@ -82,7 +83,11 @@ export default {
           label: 'Linkedin',
           url: 'https://www.linkedin.com/in/coltborg/',
         },
-
+        {
+          icon: IconRss,
+          label: 'RSS',
+          url: 'https://www.coltborg.com/rss.xml',
+        },
       ],
     }
   },

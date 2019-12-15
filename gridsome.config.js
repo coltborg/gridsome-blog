@@ -50,9 +50,8 @@ module.exports = {
         feedItemOptions: node => ({
           author: 'Colt Borg',
           categories: [node.tags],
-          content: node.content,
           date: node.date,
-          description: node.description,
+          description: node.content,
           title: node.title,
           url: 'https://coltborg.com' + node.path,
         }),

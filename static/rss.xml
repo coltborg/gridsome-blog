@@ -1,1 +1,703 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Colt Borg]]></title><description><![CDATA[Colt Borg]]></description><link>https://coltborg.com</link><generator>RSS for Node</generator><lastBuildDate>Sat, 07 Dec 2019 19:04:19 GMT</lastBuildDate><atom:link href="https://coltborg.com/rss.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[Make node list into an array]]></title><description><![CDATA[Make iterating through a set of DOM nodes easy by turning a Node List into an array.]]></description><link>https://coltborg.com/make-node-list-into-an-array/</link><guid isPermaLink="true">https://coltborg.com/make-node-list-into-an-array/</guid><category><![CDATA[JavaScript]]></category><dc:creator><![CDATA[Colt Borg]]></dc:creator><pubDate>Sat, 07 Dec 2019 00:00:00 GMT</pubDate></item><item><title><![CDATA[Nested Destructuring]]></title><description><![CDATA[I always forget the syntax for nested object destructuring. So I wrote this article so that I don't forget again.]]></description><link>https://coltborg.com/nested-destructuring/</link><guid isPermaLink="true">https://coltborg.com/nested-destructuring/</guid><category><![CDATA[JavaScript]]></category><dc:creator><![CDATA[Colt Borg]]></dc:creator><pubDate>Sat, 22 Jun 2019 00:00:00 GMT</pubDate></item><item><title><![CDATA[Style a Blockquote using Tailwind CSS]]></title><description><![CDATA[How to use Tailwind CSS to style a semantic, reusable blockquote that looks great.]]></description><link>https://coltborg.com/style-a-blockquote-using-tailwind-css/</link><guid isPermaLink="true">https://coltborg.com/style-a-blockquote-using-tailwind-css/</guid><category><![CDATA[CSS,React,Accessibility]]></category><dc:creator><![CDATA[Colt Borg]]></dc:creator><pubDate>Mon, 03 Jun 2019 00:00:00 GMT</pubDate></item><item><title><![CDATA[Markdown test file]]></title><description><![CDATA[Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.]]></description><link>https://coltborg.com/markdown-test-file/</link><guid isPermaLink="true">https://coltborg.com/markdown-test-file/</guid><category><![CDATA[Markdown,Test files]]></category><dc:creator><![CDATA[Colt Borg]]></dc:creator><pubDate>Wed, 06 Feb 2019 00:00:00 GMT</pubDate></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Colt Borg]]></title><description><![CDATA[Colt Borg]]></description><link>https://coltborg.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 15 Dec 2019 04:20:08 GMT</lastBuildDate><atom:link href="https://coltborg.com/rss.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[Make node list into an array]]></title><description><![CDATA[
+Most of the time when I'm coding with [node lists](https://developer.mozilla.org/en-US/docs/Web/API/NodeList), I want to iterate through each of them and preform some action. My first thought is, "Node lists are _like_ arrays, I should be able to use the array methods like `.map()` or `.filter()` right?" 🤔
+
+But every time it backfires because Node lists are actually objects.
+
+```javascript
+const nodeArray = document.querySelectorAll('p');
+
+nodeArray.map(node => console.log(node);
+// ❗️TypeError: nodeArray.map is not a function
+```
+
+To quickly fix this, I could either use the `.forEach()` method instead of `.map()`.
+
+```javascript
+const nodeArray = document.querySelectorAll('p');
+
+nodeArray.forEach(node => console.log(node);
+// ✅ That works!
+```
+
+Or I could quickly turn the node list into an array using the `spread operator`.
+
+```javascript
+const nodeArray = document.querySelectorAll('p');
+const realArray = [...nodeArray];
+
+realArray.map(node => console.log(node);
+// ✅ That works!
+```]]></description><link>https://coltborg.com/make-node-list-into-an-array/</link><guid isPermaLink="true">https://coltborg.com/make-node-list-into-an-array/</guid><category><![CDATA[JavaScript]]></category><dc:creator><![CDATA[Colt Borg]]></dc:creator><pubDate>Sat, 07 Dec 2019 00:00:00 GMT</pubDate></item><item><title><![CDATA[Nested Destructuring]]></title><description><![CDATA[
+## Object Destructuring
+
+> The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables. - [MDN Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
+Destructing is one of my favorite ES6 syntax improvements. But when I need to pull things out of nested objects, I can never remember the syntax. So I'm writing this so I can focus on how to remember the syntax and so that I can refer to this article if I forget. 😆
+
+But first, lets looks at destructuring from one object.
+
+```jsx
+const MyAwesomeButton = props => (
+  <button type="button" className="button">
+    {props.label}
+  </button>
+)
+```
+
+Here we have `MyAwesomeButton` that takes a `label` prop and puts it inside of a `<button>`. We can use object destructing to only show the parts that we need to use, such as `label`.
+
+```diff
++ const MyAwesomeButton = ({ label }) => (
+- const MyAwesomeButton = props => (
+  <button type="button" className="button">
++   {label}
+-   {props.label}
+  </button>
+)
+```
+
+Now we've eliminated the reference to `props` and are only pulling out `label` so that we can use it as a variable name by itself. We need to wrap `{ label }` in parentheses because without them, JavaScript would interpret it as an [object literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Creating_objects).
+
+Our final result looks like:
+
+```jsx
+const MyAwesomeButton = ({ label }) => (
+  <button type="button" className="">
+    {label}
+  </button>
+)
+```
+
+## Now Lets Try Nesting
+
+Here is where the syntax gets confusing. If I want to pull from an object within an object, I totally can, but I never remember the right way to do it.
+
+```jsx
+const MyAwesomeButton = props => (
+  <button type="button" className="button">
+    {props.constants.icon}
+    {props.constants.label}
+  </button>
+)
+```
+
+So now I have an object inside of my props that have two different values, but they're nested inside of an object.
+
+Before we look at how we can pull `icon` and `label` out of the prop, lets look at how an object literal is defined:
+
+```javascript
+const myObject = {
+  property: 'value',
+  nestedObject: {
+    nestedProperty: 'nested value'
+  }
+};
+```
+
+Ok we have curly braces, property names, and values. You can take the "shape" and apply it to how our destructuring will look.
+
+```javascript
+// Pseudo code of how we would pull out `nestedProperty`
+{
+  nestedObject: {
+    nestedProperty
+  }
+}
+```
+
+Now reduce that format to one line.
+
+```javascript
+{ nestedObject: { nestedProperty } }
+```
+
+💡 Ah ha! I usually forget when I need to add another set of curly braces to get to the nested property!
+
+Back to our React button example, I want to pull `icon` and `label` out of `props.constants`.
+
+```diff
++ const MyAwesomeButton = { constants: { icon }, constants: { label }  } => (
+- const MyAwesomeButton = props => (
+  <button type="button" className="button">
++   {icon}
+-   {props.constants.icon}
++   {label}
+-   {props.constants.label}
+  </button>
+)
+```
+
+Our component now doesn't reference `props` or `constants` and has a cleaning look.
+
+```jsx
+const MyAwesomeButton = { constants: { icon }, constants: { label }  } => (
+  <button type="button" className="button">
+    {icon}
+    {label}
+  </button>
+)
+```
+
+## GatsbyJS Example
+
+I got this wrong several times while building this website. Pulling from nested objects seems like a normal thing when working with GraphQL, the query language I'm using in Gatsby. I like how clean it looks, but it took a little while to get use to.
+
+Here is one of the craziest examples of nested destructuring that I had to do:
+
+```jsx
+{quotes.map(
+  ({
+    node: { avatar },
+    node: { company },
+    node: { id },
+    node: { person },
+    node: { quote },
+    node: { url },
+  }) => (
+    <li key={id} className="mb-8">
+      <Quote
+        avatarAlt={`Avatar of ${person}`}
+        avatarUrl={avatar}
+        company={company}
+        linkUrl={url}
+        name={person}
+        quote={quote}
+      />
+    </li>
+  )
+)}
+```
+
+For each quote, I'm pulling out each piece of data as its own variable and then using it where I need to. And there's not all these references to `node`, which I like.
+
+## Conclusion
+
+The syntax for nested destructuring on the left side mirrors what defining a nested object would look like on the right side.
+]]></description><link>https://coltborg.com/nested-destructuring/</link><guid isPermaLink="true">https://coltborg.com/nested-destructuring/</guid><category><![CDATA[JavaScript]]></category><dc:creator><![CDATA[Colt Borg]]></dc:creator><pubDate>Sat, 22 Jun 2019 00:00:00 GMT</pubDate></item><item><title><![CDATA[Style a Blockquote using Tailwind CSS]]></title><description><![CDATA[
+## Inspiration
+
+I enjoy Steve Schoger's [🔥 design tips](https://twitter.com/i/moments/994601867987619840) on twitter. Recently, he posted on how to improve block quotes. So I decided to write about how I would go about improving the design of my block quotes for my home page, keeping it accessible friendly, and componentizing it with React.
+
+## HTML structure
+
+I always start with the unstyled structure. You need a solid base to build upon. So if we start with the current design markup:
+
+```jsx
+<blockquote>
+  <p>"I trust him."</p>
+  <cite>
+    <a href="...">
+      nickd
+    </a>
+  </cite>
+</blockquote>
+```
+
+`blockquote` makes the most sense considering it is exactly what was displaying. Inside of the `blockquote`, we add the actual quote inside a `paragraph` tag, then wrap the persons name inside a `cite` tag.
+
+We can keep this structure for our new design.
+
+## Build off of current design
+
+Taking advice from Steve Schoger's tweet, I will add an avatar, increase font sizes, and add a company link to my design. I already had the font in `italic`. Now the stylized quote mark looked best for me outside of the quote background.
+
+Here are the classes I used to create the old design. `blockquote` might seems like it has a lot of classes, but this is pretty tame.
+
+```jsx
+<blockquote className="p-4 italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+  <p className="mb-2">"I trust him."</p>
+  <cite>
+    -
+    <a href="..." target="_blank" rel="noopener noreferrer">
+      nickd
+    </a>
+  </cite>
+</blockquote>
+```
+
+### Improved typography and spacing
+
+We'll start with improving the typography and spacing. Increasing the size will make the quote more prominent and we have plenty of space to use. I also prefer slightly larger sizes for text.
+
+```git
++ <blockquote className="relative p-4 text-xl italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+- <blockquote className="p-4 italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">
++  <p className="mb-4">"I trust him."</p>
+-  <p className="mb-2">"I trust him."</p>
+  <cite>
+    -
++   <a className="text-sm" href="..." target="_blank" rel="noopener noreferrer">
+-   <a href="..." target="_blank" rel="noopener noreferrer">
+      nickd
+    </a>
+  </cite>
+</blockquote>
+```
+
+### Add avatar
+
+Now to add an image and change the link from the persons name to their work. We can use `flexbox` to easily position the text next to the image.
+
+```git
+<blockquote className="relative p-4 text-xl italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+  <p className="mb-4">"I trust him."</p>
++ <cite className="flex items-center">
+- <cite>
+-   -
++ <img alt="Avatar of nickd" className="w-12 mr-4 rounded-full bg-neutral-500" src="..." />
++ <div className="flex flex-col items-start">
++   <span className="mb-1 text-sm italic font-bold">
++     nickd
++   </span>
+    <a className="text-sm" href="..." target="_blank" rel="noopener noreferrer">
++     Draft
+-     nickd
+    </a>
++ </div>
+  </cite>
+</blockquote>
+```
+
+### Add stylistic quote mark
+
+Lastly, we're going to add a stylistic quote mark. Now for screen readers, we'll use an [aria-hidden](https://www.w3.org/TR/wai-aria-1.1/#aria-hidden) attribute because this quote mark doesn't need to be announced. Assistive technologies are already told that this is a `blockquote`.
+
+```git
+<blockquote className="relative p-4 text-xl italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">
++ <div className="stylistic-quote-mark" aria-hidden="true">
++   &ldquo;
++ </div>
+  <p className="mb-4">"I trust him."</p>
+  <cite className="flex items-center">
+  <img alt="Avatar of nickd" className="w-12 mr-4 rounded-full bg-neutral-500" src="..." />
+  <div className="flex flex-col items-start">
+    <span className="mb-1 text-sm italic font-bold">
+      nickd
+    </span>
+    <a className="text-sm" href="..." target="_blank" rel="noopener noreferrer">
+      Draft
+    </a>
+  </div>
+  </cite>
+</blockquote>
+```
+To style the block quote mark, we can use tailwinds [@apply](https://tailwindcss.com/docs/functions-and-directives/#apply) to add utility styles into the class. While being able to define custom style for this specific element.
+
+Using `right: 100%` is a neat trick to push the quote mark outside of the parent, almost like a negative margin.
+
+[@screen](https://tailwindcss.com/docs/functions-and-directives/#screen) is also useful to apply responsive styling. Here we're starting out with the mark being [hidden on small screen sizes](https://tailwindcss.com/docs/responsive-design/#mobile-first) and after the `sm` breakpoint is reached, the quote will appear.
+
+```css
+.stylistic-quote-mark {
+  font-size: 5rem;
+  right: 100%;
+  @apply mr-2 hidden font-dank-mono text-neutral-500 absolute top-0 leading-none;
+}
+
+@screen sm {
+  .stylistic-quote-mark {
+    @apply block;
+  }
+}
+```
+
+## Make it a reusable component
+
+To make the semantic structure, a11y improvements, and long class strings easy to re-use, we can turn this markup into a React—or any other component based library—component.
+
+```jsx
+import React from 'react'
+
+const Quote = () => (
+  <blockquote className="relative p-4 text-xl italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+    <div className="stylistic-quote-mark" aria-hidden="true">
+      &ldquo;
+    </div>
+    <p className="mb-4">"I trust him."</p>
+    <cite className="flex items-center">
+      <img
+        alt="Avatar of nickd"
+        className="w-12 mr-4 rounded-full bg-neutral-500"
+        src="..."
+      />
+      <div className="flex flex-col items-start">
+        <span className="mb-1 text-sm italic font-bold">nickd</span>
+        <a
+          href="..."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm"
+        >
+          Draft
+        </a>
+      </div>
+    </cite>
+  </blockquote>
+)
+
+export default Quote
+```
+
+Because we want to keep the design solid as we re-use this component, we can accept dynamic content from `props`. We could make this `props` required or do other things to make the prop validation more strict. But for now, we'll leave them as `strings`.
+
+```git
+import React from 'react'
++import PropTypes from 'prop-types'
+
++const Quote = ({ avatarAlt, avatarUrl, company, linkUrl, name, quote }) => (
+-const Quote = () => (
+  <blockquote className="relative p-4 text-xl italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+    <div className="stylistic-quote-mark" aria-hidden="true">
+      &ldquo;
+    </div>
++   <p className="mb-4">{quote}</p>
+-   <p className="mb-4">"I trust him."</p>
+    <cite className="flex items-center">
+      <img
++       alt={avatarAlt}
+-       alt="Avatar of nickd"
+        className="w-12 mr-4 rounded-full bg-neutral-500"
++       src={avatarUrl}
+-       src="..."
+      />
+      <div className="flex flex-col items-start">
++       <span className="mb-1 text-sm italic font-bold">{name}</span>
+-       <span className="mb-1 text-sm italic font-bold">nickd</span>
+        <a
++         href={linkUrl}
+-         href="..."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm"
+        >
++         {company}
+-         Draft
+        </a>
+      </div>
+    </cite>
+  </blockquote>
+)
+
++Quote.propTypes = {
++ avatarAlt: PropTypes.string,
++ avatarUrl: PropTypes.string,
++ company: PropTypes.string,
++ linkUrl: PropTypes.string,
++ name: PropTypes.string,
++ quote: PropTypes.string,
++}
+
+...
+```
+
+With this component and its props in place, it's very easy to reuse now. Implementing it on a page that could have multiple quotes would look something like this:
+
+```jsx
+import Quote from '../components/quote'
+...
+{quotes.map(
+  (quote) => (
+    <li key={quote.id} className="mb-2">
+      <Quote
+        avatarAlt={`Avatar of ${quote.person}`}
+        avatarUrl={quote.avatar}
+        company={quote.company}
+        linkUrl={quote.url}
+        name={quote.person}
+        quote={quote.quote}
+      />
+    </li>
+  )
+)}
+...
+```
+
+## Conclusion
+
+Tailwind can be used with a component language to super charge your styling development and hide class name complexity in times when you don't need to worry about it. You can also respect semantic structure and a11y features without much extra effort.
+]]></description><link>https://coltborg.com/style-a-blockquote-using-tailwind-css/</link><guid isPermaLink="true">https://coltborg.com/style-a-blockquote-using-tailwind-css/</guid><category><![CDATA[CSS,React,Accessibility]]></category><dc:creator><![CDATA[Colt Borg]]></dc:creator><pubDate>Mon, 03 Jun 2019 00:00:00 GMT</pubDate></item><item><title><![CDATA[Markdown test file]]></title><description><![CDATA[
+Markdown is intended to be as easy-to-read and easy-to-write as is feasible.Readability, however, is emphasized above all else. A Markdown-formatted
+document should be publishable as-is, as plain text, without looking
+like it's been marked up with tags or formatting instructions.
+
+While Markdown's syntax has been influenced by several existing text-to-HTML
+filters -- including [Setext](http://docutils.sourceforge.net/mirror/setext.html), [atx](http://www.aaronsw.com/2002/atx/), [Textile](http://textism.com/tools/textile/), [reStructuredText](http://docutils.sourceforge.net/rst.html),
+[Grutatext](http://www.triptico.com/software/grutatxt.html), and [EtText](http://ettext.taint.org/doc/) -- the single biggest source of
+inspiration for Markdown's syntax is the format of plain text email.
+
+## Block Elements
+
+### Paragraphs and Line Breaks
+
+A paragraph is simply one or more consecutive lines of text, separated
+by one or more blank lines. (A blank line is any line that looks like a
+blank line -- a line containing nothing but spaces or tabs is considered
+blank.) Normal paragraphs should not be indented with spaces or tabs.
+
+The implication of the "one or more consecutive lines of text" rule is
+that Markdown supports "hard-wrapped" text paragraphs. This differs
+significantly from most other text-to-HTML formatters (including Movable
+Type's "Convert Line Breaks" option) which translate every line break
+character in a paragraph into a `<br />` tag.
+
+When you *do* want to insert a `<br />` break tag using Markdown, you
+end a line with two or more spaces, then type return.
+
+### Headers
+
+Markdown supports two styles of headers, [Setext] [1] and [atx] [2].
+
+Optionally, you may "close" atx-style headers. This is purely
+cosmetic -- you can use this if you think it looks better. The
+closing hashes don't even need to match the number of hashes
+used to open the header. (The number of opening hashes
+determines the header level.)
+
+
+### Images
+
+Images are added with `![Image Alt](./images/image.jpg)`
+
+![Image](./images/alexandr-podvalny-220262-unsplash.jpg)
+
+
+### Blockquotes
+
+Markdown uses email-style `>` characters for blockquoting. If you're
+familiar with quoting passages of text in an email message, then you
+know how to create a blockquote in Markdown. It looks best if you hard
+wrap the text and put a `>` before every line:
+
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+>
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+> id sem consectetuer libero luctus adipiscing.
+
+Markdown allows you to be lazy and only put the `>` before the first
+line of a hard-wrapped paragraph:
+
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
+
+Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by
+adding additional levels of `>`:
+
+> This is the first level of quoting.
+>
+> > This is nested blockquote.
+>
+> Back to the first level.
+
+Blockquotes can contain other Markdown elements, including headers, lists,
+and code blocks:
+
+> ## This is a header.
+>
+> 1.   This is the first list item.
+> 2.   This is the second list item.
+>
+> Here's some example code:
+>
+>     return shell_exec("echo $input | $markdown_script");
+
+Any decent text editor should make email-style quoting easy. For
+example, with BBEdit, you can make a selection and choose Increase
+Quote Level from the Text menu.
+
+
+### Lists
+
+Markdown supports ordered (numbered) and unordered (bulleted) lists.
+
+Unordered lists use asterisks, pluses, and hyphens -- interchangably
+-- as list markers:
+
+*   Red
+*   Green
+*   Blue
+
+is equivalent to:
+
++   Red
++   Green
++   Blue
+
+and:
+
+-   Red
+-   Green
+-   Blue
+
+Ordered lists use numbers followed by periods:
+
+1.  Bird
+2.  McHale
+3.  Parish
+
+It's important to note that the actual numbers you use to mark the
+list have no effect on the HTML output Markdown produces. The HTML
+Markdown produces from the above list is:
+
+If you instead wrote the list in Markdown like this:
+
+1.  Bird
+1.  McHale
+1.  Parish
+
+or even:
+
+3. Bird
+1. McHale
+8. Parish
+
+you'd get the exact same HTML output. The point is, if you want to,
+you can use ordinal numbers in your ordered Markdown lists, so that
+the numbers in your source match the numbers in your published HTML.
+But if you want to be lazy, you don't have to.
+
+To make lists look nice, you can wrap items with hanging indents:
+
+*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+    Suspendisse id sem consectetuer libero luctus adipiscing.
+
+But if you want to be lazy, you don't have to:
+
+*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.
+
+List items may consist of multiple paragraphs. Each subsequent
+paragraph in a list item must be indented by either 4 spaces
+or one tab:
+
+1.  This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.
+
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+    sit amet velit.
+
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+
+It looks nice if you indent every line of the subsequent
+paragraphs, but here again, Markdown will allow you to be
+lazy:
+
+*   This is a list item with two paragraphs.
+
+    This is the second paragraph in the list item. You're
+only required to indent the first line. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.
+
+*   Another item in the same list.
+
+To put a blockquote within a list item, the blockquote's `>`
+delimiters need to be indented:
+
+*   A list item with a blockquote:
+
+    > This is a blockquote
+    > inside a list item.
+
+To put a code block within a list item, the code block needs
+to be indented *twice* -- 8 spaces or two tabs:
+
+*   A list item with a code block:
+
+        <code goes here>
+
+### Code Blocks
+
+Pre-formatted code blocks are used for writing about programming or
+markup source code. Rather than forming normal paragraphs, the lines
+of a code block are interpreted literally. Markdown wraps a code block
+in both `<pre>` and `<code>` tags.
+
+To produce a code block in Markdown, simply indent every line of the
+block by at least 4 spaces or 1 tab.
+
+This is a normal paragraph:
+
+    This is a code block.
+
+Here is an example of AppleScript:
+
+    tell application "Foo"
+        beep
+    end tell
+
+A code block continues until it reaches a line that is not indented
+(or the end of the article).
+
+Within a code block, ampersands (`&`) and angle brackets (`<` and `>`)
+are automatically converted into HTML entities. This makes it very
+easy to include example HTML source code using Markdown -- just paste
+it and indent it, and Markdown will handle the hassle of encoding the
+ampersands and angle brackets. For example, this:
+
+    <div class="footer">
+        &copy; 2004 Foo Corporation
+    </div>
+
+Regular Markdown syntax is not processed within code blocks. E.g.,
+asterisks are just literal asterisks within a code block. This means
+it's also easy to use Markdown to write about Markdown's own syntax.
+
+```
+tell application "Foo"
+    beep
+end tell
+```
+
+## Span Elements
+
+### Links
+
+Markdown supports two style of links: *inline* and *reference*.
+
+In both styles, the link text is delimited by [square brackets].
+
+To create an inline link, use a set of regular parentheses immediately
+after the link text's closing square bracket. Inside the parentheses,
+put the URL where you want the link to point, along with an *optional*
+title for the link, surrounded in quotes. For example:
+
+This is [an example](http://example.com/) inline link.
+
+[This link](http://example.net/) has no title attribute.
+
+### Emphasis
+
+Markdown treats asterisks (`*`) and underscores (`_`) as indicators of
+emphasis. Text wrapped with one `*` or `_` will be wrapped with an
+HTML `<em>` tag; double `*`'s or `_`'s will be wrapped with an HTML
+`<strong>` tag. E.g., this input:
+
+*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+
+### Code
+
+To indicate a span of code, wrap it with backtick quotes (`` ` ``).
+Unlike a pre-formatted code block, a code span indicates code within a
+normal paragraph. For example:
+
+Use the `printf()` function.
+]]></description><link>https://coltborg.com/markdown-test-file/</link><guid isPermaLink="true">https://coltborg.com/markdown-test-file/</guid><category><![CDATA[Markdown,Test files]]></category><dc:creator><![CDATA[Colt Borg]]></dc:creator><pubDate>Wed, 06 Feb 2019 00:00:00 GMT</pubDate></item></channel></rss>
