@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-gridsome": "^1.4.0",
     "eslint-plugin-vue": "^6.0.1",
     "gridsome-plugin-tailwindcss": "^2.2.30",
