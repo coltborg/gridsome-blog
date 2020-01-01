@@ -22,7 +22,8 @@ a:not(.button) {
 	transition:
 		background-color var(--transition-time),
 		color var(--transition-time),
-		opacity var(--transition-time);
+		opacity var(--transition-time),
+		text-decoration-color var(--transition-time);
 
 	&:hover {
 		opacity: .8;

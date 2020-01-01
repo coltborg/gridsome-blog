@@ -20,6 +20,13 @@
       {{ $static.metadata.siteDescription }}
     </p>
 
+    <p class="author__now">
+      What am I up to
+      <g-link to="/now/">
+        now
+      </g-link>
+    </p>
+
     <p class="author__links">
       <SocialIcon
         v-for="(link, index) in socialLinks"
@@ -114,8 +121,14 @@ export default {
 	}
 
 	&__intro {
-		opacity: .8;
-	}
+    opacity: 0.8;
+    margin-bottom: 0.625em;
+  }
+
+  &__now {
+    opacity: 0.8;
+    margin-bottom: 1.25em;
+  }
 
 	&__site-title {
 		font-size: 1.5em;
