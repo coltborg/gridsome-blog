@@ -8,7 +8,6 @@ title: Bring focus to things app
 description: "I use tag filtering in Things to focus on the one task I'm working on."
 ---
 
-
 I love the app [Things 3](https://culturedcode.com/things/). I have been using it since it’s design update in (look up when Things 3 released).
 
 My only problem with it is that it does have the ability to defer tasks or hide tasks until I can start them.
