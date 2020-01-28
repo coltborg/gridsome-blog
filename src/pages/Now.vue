@@ -16,11 +16,7 @@
       <p>Currently in my fourth year of living in Chicago, US. Spending my time on:</p>
       <ul>
         <li>
-          Developing software at <a
-            href="https://www.moonlightwork.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >moonlightwork.com</a>
+          Looking for my next opportunity as a senior frontend developer.
         </li>
         <li>
           Learning Japanese using <a
