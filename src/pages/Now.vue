@@ -31,7 +31,7 @@
         </li>
         <li>Creating a routine of writing regularly on <a href="/">this blog</a>.</li>
       </ul>
-      <p>Updated on December 31st, 2019.</p>
+      <p>Updated on January 27th, 2020.</p>
     </div>
   </Layout>
 </template>
