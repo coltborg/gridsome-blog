@@ -1,7 +1,7 @@
 ---
 canonical_url: true
 cover_image: ./images/theme-monokai-pro.png
-date: 2020-02-27
+date: 2020-03-02
 published: true
 tags: ['VSCode', 'Setup', 'Productivity']
 title: Visual Studio Code Setup
@@ -28,13 +28,13 @@ I use this [extension](https://marketplace.visualstudio.com/items?itemName=wmaur
 
 ![Code spell checker in the visual studio code store](./images/code-spell-checker.png)
 
-I’m don’t spell well most of the time. This [extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) is a life saver. Plus it helps find little bugs due to typos.
+In the course of typing, I make a lot of spelling mistakes. This [extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) is a life saver. Plus it helps find little bugs due to typos.
 
 ### ESLint
 
 ![ESLint extension in the visual studio code store](./images/eslint.png)
 
-[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) is an essential extension for any JavaScript based project. Getting all the settings to work are a pain in the ass sometimes, but I couldn't live without it.
+[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) is an essential extension for any JavaScript-based project. Getting all the settings to work are a pain in the ass sometimes, but I couldn't live without it.
 
 ### Headwind
 
@@ -64,19 +64,19 @@ This [extension](https://marketplace.visualstudio.com/items?itemName=BriteSnow.v
 
 ![Example of vscode-icons for vue, javascript, etc](./images/vscode-icons.png)
 
-I've used the [vscode-icon](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) set since I started using Visual Studio Code. I'm so use to them now, I don't want to switch.
+I've used the [vscode-icon](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) set since I started using Visual Studio Code. I'm so used to them now, I don't want to switch.
 
 ### Vue vscode snippets
 
 ![Vue vscode snippets is the best collection of snippets for the Vue.js language](./images/vue-vscode-snippets.png)
 
-The [best snippet](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) package for Vue.js. I sometimes forget the format of certain features because this package has so many good snippets that I've forgot the right syntax from memory 😅
+The [best snippet](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) package for Vue.js. I sometimes forget the format of certain features because this package has so many good snippets.
 
 ### Quick and simple text selection
 
 ![Quick and simple text selection in the visual studio code store](./images/quick-and-simple-text-selection.png)
 
-I've used this [extension](https://marketplace.visualstudio.com/items?itemName=dbankier.vscode-quick-select) so much I thought it baked into VSCode! It makes selecting text within characters—think `''`, `""`, `[]`, and `()`—a keyboard shortcut away. When I have to do a lot of irregular find and replace tasks, this extension haves my life.
+I've used this [extension](https://marketplace.visualstudio.com/items?itemName=dbankier.vscode-quick-select) so much I thought it was baked into VSCode! It makes selecting text within characters—think `''`, `""`, `[]`, and `()`—a keyboard shortcut away. When I have to do a lot of irregular find and replace tasks, this extension haves my life.
 
 ### Text Marker
 
@@ -88,7 +88,7 @@ Sometimes I need to highlight a piece of code to copy, refactor, delete, etc. Th
 
 ![Victor mono landing page](./images/font-victor-mono.png)
 
-[Victor mono](https://rubjo.github.io/victor-mono/) was my most used font in 2019. The large x-height makes it easy for me to read. Along with the ligatures and the cursive italic variant.
+[Victor mono](https://rubjo.github.io/victor-mono/) was my most used font in 2019. Along with the ligatures and the cursive italic variant, the large x-height makes it easy for me to read.
 
 If it works well for you, consider donating to the creator.
 
@@ -110,18 +110,17 @@ A classic blue and yellow [theme](https://marketplace.visualstudio.com/items?ite
 
 Great dark [theme](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula) with purples and pinks. This theme puts a solid vertical pink line between editors when you're in split mode, which I really like. So when I am working with two or three splits for long periods of time, I switch to this theme.
 
-### Light owl
-
-![A Vue.js file with the light owl theme active](./images/theme-light-owl.png)
-
-My favorite light theme. Just enough color to be nice, but everything is still readable. It comes with [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl), so a two for one situation.
-
 ### Monokai pro
 
 ![A Vue.js file with the monokai pro theme active](./images/theme-monokai-pro.png)
 
 This [theme](https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode) costs money, but there is a free trial. I'd say it is well worth it since it comes with an icon theme—which I don't use. This is my "home base" theme. I might not use it all the time, but I always come back to it eventually.
 
+### Light owl
+
+![A Vue.js file with the light owl theme active](./images/theme-light-owl.png)
+
+My favorite light theme. Just enough color to be nice, but everything is still readable. It comes with [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl), so a two for one situation.
 
 ### Night owl
 
@@ -140,3 +139,9 @@ I haven't used this theme very much, but I like the peach and purple vibe of [th
 ![A Vue.js file with the synth wave '84 theme active](./images/theme-synthwave.png)
 
 SUPER POP COLORS! When I really need to tell the difference between variables and functions, I turn on [this theme](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode). I don't turn on the custom glow CSS because glow is very distracting to me.
+
+## Thanks for reading
+
+Next up I'll be writing up what keyboard shortcuts I use and customized to save myself time.
+
+What extensions/themes do you use for VSCode? I'd love to hear about your setup!
