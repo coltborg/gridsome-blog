@@ -92,6 +92,14 @@ Sometimes I need to highlight a piece of code to copy, refactor, delete, etc. Th
 
 If it works well for you, consider donating to the creator.
 
+### Italic cursive face not working in VSCode
+
+(Mar 12, 2020 Update)
+
+There is a bug with [VSCode font rendering for macOS](https://github.com/microsoft/vscode/issues/82122). If this is happening for you, there is a simple work around. Open up the Font Book app, find the Victor Mono font and disable or delete all "oblique" faces. The "oblique" faces were getting applied instead of the "italic" faces.
+
+![Disable oblique faces inside of font book for macOS](./images/disable-oblique-faces.png)
+
 ## Themes
 
 I like color themes. I like having a lot of color themes to choose from. I like light themes for when the sun is out and there is a glare from the window. I like dark themes for the rest of the time.
