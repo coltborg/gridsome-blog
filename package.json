@@ -8,7 +8,7 @@
     "lint": "eslint 'src/**/*.{js,vue}'"
   },
   "dependencies": {
-    "@gridsome/cli": "^0.3.1",
+    "@gridsome/cli": "^0.3.4",
     "@gridsome/plugin-google-analytics": "^0.1.0",
     "@gridsome/remark-prismjs": "^0.3.0",
     "@gridsome/source-filesystem": "^0.6.0",
