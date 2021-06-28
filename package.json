@@ -23,7 +23,7 @@
     "eslint-plugin-gridsome": "^1.4.0",
     "eslint-plugin-vue": "^6.2.1",
     "gridsome-plugin-tailwindcss": "^2.2.36",
-    "node-sass": "^4.13.1",
+    "node-sass": "^6.0.1",
     "sass-loader": "^8.0.2"
   }
 }
